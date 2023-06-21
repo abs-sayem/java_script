@@ -1,5 +1,5 @@
 // ============= Class-Object-Constractor ================//
-
+console.log("=====Class-Object-Constractor=====")
 // Create an Object: We can create a class by: 
 const person = {}
 
@@ -48,9 +48,27 @@ const p32 = new Person3("Someone32", "someone32@gmail.com")
 
 console.log(p31)
 console.log(p32)
+
+console.log("\n=====End of Class-Object-Constractor=====\n")
 //===============================================================================================
 
+
 // =============== Method ================//
+/* The basic work of methods are doing something relatable using the properties of the class. 
+Methods can be defined in two ways-
+    methodName(){
+        Definition of the method
+    }
+and the 2nd method is-
+> Arrow Method- has problem with `this`. So, if have something to do with 'this', don't use it. Otherwise there is no 
+problem of using `this` method style.
+    methodName = () => {
+        Defination of the method
+    }
+*/
+
+console.log("=====Method=====")
+
 class MPerson{
     constructor(name, email, phone){
         this.name = name
@@ -70,9 +88,11 @@ class MPerson{
     createProfile(){
         console.log(`Name: ${this.name}, Email:${this.email}, Phone:${this.phone}`)
     }
+    // Define module in another way [arrow (=>)]
     // Print the whole object
-    print(){
+    print = () => {
         console.log(this)   //[`this` determines the whole object]
+        // this has a issue with arrow module.So, it better not to use `this` with arrow
     }
 }
 
@@ -91,3 +111,11 @@ mp2.changePhone("01313406618")
 mp1.print()
 mp2.print()
 mp3.print()
+
+console.log("\n=====End of Method=====\n")
+//=========================================================================================
+
+
+//==========Private Properties==============
+
+console.log("=====Private Properties=====")
