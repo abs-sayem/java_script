@@ -49,7 +49,7 @@ const p32 = new Person3("Someone32", "someone32@gmail.com")
 console.log(p31)
 console.log(p32)
 
-console.log("\n=====End of Class-Object-Constractor=====\n")
+console.log("===============================================[End of Class-Object-Constractor]\n")
 //===============================================================================================
 
 
@@ -112,10 +112,65 @@ mp1.print()
 mp2.print()
 mp3.print()
 
-console.log("\n=====End of Method=====\n")
+console.log("==========================================================[End of Method ]\n")
 //=========================================================================================
 
 
-//==========Private Properties==============
+//==========Access_Modifiers(Private Properties)==============
 
 console.log("=====Private Properties=====")
+/* In javaScript there is no concept of Access Modifier. That means there is no control from the compiler end.
+But we can give indication to the community(programmers) about the private properties, so that they don't 
+change them.
+For properties we can use underscore(_) before property name. Like: 'this._name'
+Similarly, For modules we will use getter and setter methods. Like: getname(){return this._name} and setName(new_name){this._name=new_name}
+*/
+
+class AMPerson{
+    constructor(name, email, phone){
+        this._name = name       
+        this._email = email
+        this._phone = phone
+    }
+    // lets define module
+    getName(){
+        return this._name
+    }
+    setName(new_name){
+        this._name = new_name
+    }
+    getEmail(){
+        return this._email
+    }
+    setEmail(new_email){
+        this._email = new_email
+    }
+    getPhone(){
+        return this._phone
+    }
+    setPhone(new_phone){
+        this._phone = new_phone
+    }
+    // Define module in another way [arrow (=>)]
+    // Print the whole object
+    print = (msg) => {
+        console.log(this._preprocess(msg))   //[`this` determines the whole object]
+        // this has a issue with arrow module.So, it better not to use `this` with arrow
+    }
+    _preprocess(msg){
+        return msg.trim().toLowerCase() + ' [this is preprocessed message]'
+    }
+}
+
+const amp1 = new AMPerson("Mahareen Siddiq Laiba", "mahareen_laiba@gmail.com", "01825507837")
+const amp2 = new AMPerson("Maharun Siddiq Aina", "maharunaina@gmail.com", "01825507838")
+const amp3 = new AMPerson("Mahar Siddiq Aifa", "maharaifa@gmail.com", "01825507839")
+
+console.log(`Object1_Name : ${amp1.getName()}, Object2_Email: ${amp2.getEmail()}, Object3_Phone: ${amp3.getPhone()}`)
+// Change properties by setter 
+amp1.setName("MS Laiba")
+amp2.setEmail("maina@gmail.com")
+amp3.setPhone("01727327168")
+
+console.log(`Object1_Name : ${amp1.getName()}             , Object2_Email: ${amp2.getEmail()}      , Object3_Phone: ${amp3.getPhone()}`)
+amp3.print("    Are You There?")
