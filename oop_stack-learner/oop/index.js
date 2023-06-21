@@ -70,6 +70,10 @@ class MPerson{
     createProfile(){
         console.log(`Name: ${this.name}, Email:${this.email}, Phone:${this.phone}`)
     }
+    // Print the whole object
+    print(){
+        console.log(this)   //[`this` determines the whole object]
+    }
 }
 
 // Create objects of the class
@@ -81,6 +85,9 @@ mp1.createProfile()
 mp3.changeName("Mahar Siddiq Laifa")
 mp2.changePhone("01313406618")
 
-console.log(mp1)
-console.log(mp2)
-console.log(mp3)
+//console.log(mp1)
+//console.log(mp2)
+//console.log(mp3)
+mp1.print()
+mp2.print()
+mp3.print()
