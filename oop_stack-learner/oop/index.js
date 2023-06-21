@@ -1,3 +1,5 @@
+// ============= Class-Object-Constractor ================//
+
 // Create an Object: We can create a class by: 
 const person = {}
 
@@ -46,3 +48,39 @@ const p32 = new Person3("Someone32", "someone32@gmail.com")
 
 console.log(p31)
 console.log(p32)
+//===============================================================================================
+
+// =============== Method ================//
+class MPerson{
+    constructor(name, email, phone){
+        this.name = name
+        this.email = email
+        this.phone = phone
+    }
+    // lets define module
+    changeName(new_name){
+        this.name = new_name
+    }
+    changeEmail(new_email){
+        this.email = new_email
+    }
+    changePhone(new_phone){
+        this.phone = new_phone
+    }
+    createProfile(){
+        console.log(`Name: ${this.name}, Email:${this.email}, Phone:${this.phone}`)
+    }
+}
+
+// Create objects of the class
+const mp1 = new MPerson("Mahareen Siddiq Laiba", "mahareen_laiba@gmail.com", "01825507837")
+const mp2 = new MPerson("Maharun Siddiq Aina", "maharunaina@gmail.com", "01825507838")
+const mp3 = new MPerson("Mahar Siddiq Aifa", "maharaifa@gmail.com", "01825507839")
+
+mp1.createProfile()
+mp3.changeName("Mahar Siddiq Laifa")
+mp2.changePhone("01313406618")
+
+console.log(mp1)
+console.log(mp2)
+console.log(mp3)
