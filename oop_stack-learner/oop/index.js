@@ -226,6 +226,7 @@ class GSPerson{
 const gsp1 = new GSPerson("Mahareen Siddiq Laiba", "mahareen_laiba@gmail.com", "01825507837")
 const gsp2 = new GSPerson("Maharun Siddiq Aina", "maharunaina@gmail.com", "01825507838")
 const gsp3 = new GSPerson("Mahar Siddiq Aifa", "maharaifa@gmail.com", "01825507839")
+
 console.log(gsp3.name)
 // Here behind the scene get() method is being called.
 //gsp3.name = "MS Aifa"   //Tried to change the name [won't work]. Will work is setter is set.
@@ -236,3 +237,62 @@ gsp1.print("can not go with it")
 
 gsp1.name = "Abs Sayem"
 console.log(gsp1)
+
+
+//===========Polymorphism====================//
+console.log("===============Polymorphism(override, overload)===============")
+
+// Polymorphism has one property in javascript: 1. Method Overriding
+/* We can override methods. For example- we use 'console.log' to show something. The functionality of 'console.log'
+ is written in 'toString()' method. Lets override this method.*/
+
+ class ORPerson{
+    constructor(name, email, phone){
+        this._name = name       
+        this._email = email
+        this._phone = phone
+    }
+    // lets define module
+    get name(){
+        return this._name
+    }
+    set name(new_name){
+        if(new_name.toLowerCase() == "abs sayem") return
+        this._name = new_name
+    }
+    get email(){
+        return this._email
+    }
+    set email(new_email){
+        this._email = new_email
+    }
+    get phone(){
+        return this._phone
+    }
+    set phone(new_phone){
+        this._phone = new_phone
+    }
+    //Override the toString() method
+    toString(){
+        return(`Name: ${this._name}, Email: ${this._email}, Phone: ${this._phone}`)
+    }
+    // Define module in another way [arrow (=>)]
+    // Print the whole object
+    print = () => {
+        console.log(this)
+        //console.log(msg.toUpperCase())
+    }
+    _preprocess(msg){
+        return msg.trim().toLowerCase() + ' [this is preprocessed message]'
+    }
+}
+
+const orp1 = new ORPerson("Mahareen Siddiq Laiba", "mahareen_laiba@gmail.com", "01825507837")
+const orp2 = new ORPerson("Maharun Siddiq Aina", "maharunaina@gmail.com", "01825507838")
+const orp3 = new ORPerson("Mahar Siddiq Aifa", "maharaifa@gmail.com", "01825507839")
+
+console.log(orp1)   //Here it doesn't call to string method
+// If we try to concatenate something with our object then toString will be called
+console.log(orp2 + " " + orp3.email)
+// We can use print function instead of console.log
+orp3.print()
