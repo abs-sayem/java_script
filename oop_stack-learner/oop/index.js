@@ -174,3 +174,65 @@ amp3.setPhone("01727327168")
 
 console.log(`Object1_Name : ${amp1.getName()}             , Object2_Email: ${amp2.getEmail()}      , Object3_Phone: ${amp3.getPhone()}`)
 amp3.print("    Are You There?")
+
+
+//===========Getter-Setter====================//
+console.log("===============Gettet-Setter===============")
+/* In the above program we access the properties by getMethod(), But if can access them by direct calling through object
+it would be better. We can do it by expanding Getter and Setter method, like- 'p1.name' 
+The main idea is: Since we cannot access the private properties directly, but we wish to do it simply by - p1.name
+But how? - For this we will use 'get()' method.
+What's the benefit? - We can get the property by calling p1.name but we cannot change it by p1.name*/
+
+
+class GSPerson{
+    constructor(name, email, phone){
+        this._name = name       
+        this._email = email
+        this._phone = phone
+    }
+    // lets define module
+    get name(){
+        return this._name
+    }
+    set name(new_name){
+        if(new_name.toLowerCase() == "abs sayem") return
+        this._name = new_name
+    }
+    get email(){
+        return this._email
+    }
+    set email(new_email){
+        this._email = new_email
+    }
+    get phone(){
+        return this._phone
+    }
+    set phone(new_phone){
+        this._phone = new_phone
+    }
+
+    // Define module in another way [arrow (=>)]
+    // Print the whole object
+    print = (msg) => {
+        console.log(this)
+        console.log(msg.toUpperCase())
+    }
+    _preprocess(msg){
+        return msg.trim().toLowerCase() + ' [this is preprocessed message]'
+    }
+}
+
+const gsp1 = new GSPerson("Mahareen Siddiq Laiba", "mahareen_laiba@gmail.com", "01825507837")
+const gsp2 = new GSPerson("Maharun Siddiq Aina", "maharunaina@gmail.com", "01825507838")
+const gsp3 = new GSPerson("Mahar Siddiq Aifa", "maharaifa@gmail.com", "01825507839")
+console.log(gsp3.name)
+// Here behind the scene get() method is being called.
+//gsp3.name = "MS Aifa"   //Tried to change the name [won't work]. Will work is setter is set.
+//console.log(gsp3.name)  //Still get the previously defined name
+gsp2.name = "MS Aina"   //Here behind the seen 'set name()' is being called.
+console.log(gsp2.name)  // Here we can see the updated name
+gsp1.print("can not go with it")
+
+gsp1.name = "Abs Sayem"
+console.log(gsp1)
