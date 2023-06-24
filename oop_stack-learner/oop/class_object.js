@@ -7,42 +7,34 @@
 
 // We can create an object like:
 const person = {}
-
 /* 
  * const = keyword that construct the object
  * person = is the name of the object, by which we will call it further
  * {} = we can pass the values of the attributes of the class the object created from
 */
-
 // Give some attributes of the object:
 person.name  = "Mahareen Siddiq Laiba"
 person.email = "mahareenlaiba@gmail.com"
 person.phone = "01825000000"
-
 // Lets see them from console:
 console.log(person)
-
 // So, in this way we can create an object and give it some attributes and corresponding values.
 
 //========================================================================
 
 // We can do the same by defining a Class: We can create a Class like:
 class Person {}
-
 /* 
  * class = keyword that indicates the class
  * Person = is the name of the Class
  * {} = we can add attributes and functionality inside the brakets.
 */
-
 // make a object of this class:
 const p1 = new Person()
-
 // We can now give the attributes of the object like previous.
 p1.name  = "Maharun Siddiq Aina"
 p1.email = "maharinaina@gmail.com"
 p1.phone = "01727000000"
-
 // To see the properties:
 console.log(p1)
 
