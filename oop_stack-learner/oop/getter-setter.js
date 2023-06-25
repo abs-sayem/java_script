@@ -15,6 +15,8 @@ class Account{
         this._email = email
         this._phone = phone
     }
+    /* Although we can access the attributes but we won't change them for community belief. To allow objects change the 
+    attributes, lets define getter-setter methods. */
     get name(){
         return this._name
     }
