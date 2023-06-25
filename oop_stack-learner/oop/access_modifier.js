@@ -23,7 +23,7 @@ class Account{
         return this._name
     }
     setName(new_name){
-        this_name = new_name
+        this._name = new_name
     }
     getEmail(){
         return this._email
@@ -49,5 +49,8 @@ const acc1 = new Account("Mahareen Laiba", "mahareen@gmail.com", "01727000000")
 const acc2 = new Account("Maharun", "maharun@gmail.com", "01825000000")
 const acc3 = new Account("Mahar", "mahar@gmail.com", "01313000000")
 
+console.log(acc1.getName())
+acc2.setName("Maharun Aina")
+console.log(acc2)
 console.log(acc1)
 console.log(acc2.getInfo())
