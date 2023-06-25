@@ -1,6 +1,5 @@
 /**
- * @description
- * Class-Object
+ * @Class_Object
  * Class : Class is a collection of attributes and related functions using those attributes. It is like a built-in datatype.
  * Object: Object is an instance of any Class. Object holds the attributes and functionality of that class.
  */

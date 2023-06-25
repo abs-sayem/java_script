@@ -1,6 +1,5 @@
 /**
- * @description
- * Getter-Setter
+ * @Getter_Setter
  * In the 'access_modifier' program we see the getter-setter mechanisn, where we introduce getter-setter method to access
  * the private properties. Here, we will explore the getter-setter little more.
  * Using getter we can access the attributes more easily, like: object.attribute (p1.name).

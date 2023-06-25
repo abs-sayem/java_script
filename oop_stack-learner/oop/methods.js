@@ -1,6 +1,5 @@
 /**
- * @description
- * Method
+ * @Methods
  * Method: The basic work of methods are doing something relatable using the properties of the class.
  * Method can be defined in 2 ways:
  * 1. methodName(){

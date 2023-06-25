@@ -1,6 +1,5 @@
 /**
- * @description
- * Access Modifier (private properties)
+ * @Access_Modifier (Private Properties)
  * In javaScript there is no concept of Access Modifier. That means there is no control from the compiler end.
  * But we can give indication to the community(programmers) about the private properties, so that they don't change them.
  * Its all about community understanding.
