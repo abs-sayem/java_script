@@ -299,79 +299,151 @@
 
 //====================================================================================
 
-// --------------------Static Properties-------------------------
-/** 
- * @StaticProperties
- * Static properties are important but not used so much. It is used while creating a library or some utility for
- * front-end and back-end developers
- * Before working with Static Properties, we have to know about 'instance_of_operator'
- * What is InstanceOfOperator? Instance-of-operator checks whether it is a instance of specified class or not
-*/
-class Person{
-    _acc_type = "Standard"
-    constructor(name, email){
-        this._name  = name
-        this._email = email
-    }
-}
+// // --------------------Static Properties-------------------------
+// /** 
+//  * @StaticProperties
+//  * Static properties are important but not used so much. It is used while creating a library or some utility for
+//  * front-end and back-end developers
+//  * Before working with Static Properties, we have to know about 'instance_of_operator'
+//  * What is InstanceOfOperator? Instance-of-operator checks whether it is a instance of specified class or not
+// */
+// class Person{
+//     _acc_type = "Standard"
+//     constructor(name, email){
+//         this._name  = name
+//         this._email = email
+//     }
+// }
 
-const p1 = new Person("Mahareen", "mahareen@gmail.com")
-const p2 = new Person("Maharun", "maharun@gmail.com")
-console.log(p2 instanceof Person)   //This will be True
-// Lets create an onject identicla to p1 or p2
-const p3 = {_name: "Mahar", _email: "mahar@gmail.com"}
-console.log(p3 instanceof Person)   //This will be False
-//------------------------------------------------------
+// const p1 = new Person("Mahareen", "mahareen@gmail.com")
+// const p2 = new Person("Maharun", "maharun@gmail.com")
+// console.log(p2 instanceof Person)   //This will be True
+// // Lets create an onject identicla to p1 or p2
+// const p3 = {_name: "Mahar", _email: "mahar@gmail.com"}
+// console.log(p3 instanceof Person)   //This will be False
+// //------------------------------------------------------
 
+// /**
+//  * Static Properties: There are some attributes and methods, we need not make instance of class to call the properties.
+//  * We can call them through ClassName.
+//  * How to do this? We can do it by placing 'static' keyword before the attribute or method name.
+//  */
+// class Account{
+//     //Static Attributes
+//     static acc_type = "Premium"
+//     static PI = 3.1416
+
+//     constructor(name,email){
+//         this._name = name
+//         this._email= email
+//     }
+//     //Static Methods
+//     static isValid(age){
+//         //if(age >= 18) return true
+//         return age >= 18
+//     }
+//     static isEqual(acc1, acc2){
+//         if(acc1._name  != acc2._name) return false
+//         if(acc1._email != acc2._email) return false
+//         else return true
+//     }
+// }
+
+// const acc1 = new Account("Mahareen Laiba", "mahareenlaiba@gmail.com")
+// const acc2 = new Account("Maharun Aina", "maharunaina@gmail.com")
+// const acc4 = new Account("Mahar Aifa", "maharaifa@gmail.com")
+
+// // See the static attributes
+// console.log(Account.PI)
+// console.log(Account.acc_type)
+
+// // Now suppose if anyone want to create an account, we can check his age and if satisfied let hin create an account.
+// const testUser = {
+//     name : "Mahar Aifa", 
+//     email:"maharaifa@gmail.com",
+//     age : 20
+//     }
+// let acc3 = null
+// if(Account.isValid(testUser.age)){
+//     acc3 = new Account(testUser.name, testUser.email)
+// }
+// console.log(acc3)
+
+// // Check isEqual method:
+// console.log(Account.isEqual(acc1 , acc2))
+// console.log(Account.isEqual(acc3, acc4))
+
+// // All though two objects are identical, they are not same
+// console.log(acc3 == acc4)
+//============================================================================
+
+
+//===================Inheritance==========================
 /**
- * Static Properties: There are some attributes and methods, we need not make instance of class to call the properties.
- * We can call them through ClassName.
- * How to do this? We can do it by placing 'static' keyword before the attribute or method name.
+ * @Inheritance
+ * Inheritance is the concept of holding the properties of another class by inherit the class
+ * Creating seperate .js file for every class is easily maintainable.
  */
-class Account{
-    //Static Attributes
-    static acc_type = "Premium"
-    static PI = 3.1416
 
+class Person{
     constructor(name,email){
         this._name = name
         this._email= email
+    }
+    get name(){
+        return this._name 
+    }
+    set name(new_name){
+        this._name = new_name
+    }
+    get email(){
+        return this._email
+    }
+    set email(new_email){
+        this._email = new_email
     }
     //Static Methods
     static isValid(age){
         //if(age >= 18) return true
         return age >= 18
     }
-    static isEqual(acc1, acc2){
-        if(acc1._name  != acc2._name) return false
-        if(acc1._email != acc2._email) return false
+    static isEqual(p1, p2){
+        if(p1._name  != p2._name) return false
+        if(p11._email != p2._email) return false
         else return true
     }
 }
-
-const acc1 = new Account("Mahareen Laiba", "mahareenlaiba@gmail.com")
-const acc2 = new Account("Maharun Aina", "maharunaina@gmail.com")
-const acc4 = new Account("Mahar Aifa", "maharaifa@gmail.com")
-
-// See the static attributes
-console.log(Account.PI)
-console.log(Account.acc_type)
-
-// Now suppose if anyone want to create an account, we can check his age and if satisfied let hin create an account.
-const testUser = {
-    name : "Mahar Aifa", 
-    email:"maharaifa@gmail.com",
-    age : 20
+// Now we will create student class inheriting the Person class
+// To inherit another class we will use: 'extends' keyword folloing Class name
+// Student class might have more properties besides the Person class properties. Lets define them:
+class Student extends Person{
+    constructor (name, email, subjects, tution_fee){
+        super(name, email)
+        this._subjects = subjects       // Subjects will be an array
+        this._tution_fee = tution_fee
     }
-let acc3 = null
-if(Account.isValid(testUser.age)){
-    acc3 = new Account(testUser.name, testUser.email)
+    // Define getter-setter for them
+    get subjects()                 {return this._subjects}
+    set subjects(new_subject)      {this._subjects = new_subject}
+    get tution_fee()               {return this._tution_fee}
+    set tution_fee(new_tution_fee) {this._tution_fee = new_tution_fee}
 }
-console.log(acc3)
+// Creating a teacher class
+class Teacher extends Person{
+    constructor (name, email, subject, salary){
+        super(name, email)
+        this._subject = subject
+        this._salary = salary
+    }
+    // Define getter-setter for them
+    get subject()            {return this._subject}
+    set subject(new_subject) {this._subject = new_subject}
+    get salary()             {return this._salary}
+    set salary(new_salary)   {this._salary = new_salary}
+}
 
-// Check isEqual method:
-console.log(Account.isEqual(acc1 , acc2))
-console.log(Account.isEqual(acc3, acc4))
-
-// All though two objects are identical, they are not same
-console.log(acc3 == acc4)
+// Creating Objects
+const s1 = new Student("Maharee", "mahareen@gmail.com", ["CSE-101", "CSE-201", "Math"], 500000)
+console.log(s1)
+const t1 = new Teacher("Maharunnesa", "maharunnesa@gmail.com", "CSE-101", 50000)
+console.log(t1)
