@@ -1,0 +1,39 @@
+Connections among Classes:
+-----------------------------------------------------------------------------------------
+Association      : straight line
+Inheritance      : open arrow
+Aggregation [Has]: open diamond	 [A has a relationship with B. B can't survive without A]
+Composition [Is] : close diamond [A is a B. B can survive without A]
+-----------------------------------------------------------------------------------------
+
+Requirements for a E-Commerce site:
+-----------------------------------------------------------------------------------------
+    Customer : cr_id, cr_name, cr_email, cr_phone, cr_password, cr_address, cr_profession, logged_in(), log_in(), log_out()      
+    Vendor   : v_id, v_name, v_email, v_password, v_shopName, v_nid, v_tin, v_phone, v_shopLicense, v_address, logged_in(), log_in(), log_out()
+    Product  : p_id, p_name, p_brand, p_category, p_quantity, p_price
+    Cart     : c_id, cr_id, p_id, v_id
+    Checkout : ct_id, cr_id, c_id
+    Order    : o_id, cr_id, p_id, v_id, payment_details, delivery_address, delivery_process
+    Search   : s_id, cr_id, p_id, v_id
+    Recommend: r_id, cr_id, p_id, v_id
+    Reviews  : rw_id, cr_id, review, rating
+    Security : st_id, cr_id, user_conformation
+-----------------------------------------------------------------------------------------------------------------
+> Customer and Vendor has several common attributes
+    User      : id, name, email, phone, password, address, has_account, logged_in(), log_in(), log_out()
+> Product has unique attributes
+> CustomerId, ProductId and VendorId are common for some Classes
+    CusProVenId  : cr_id, p_id, v_id
+> Final Classes and their Attributes:
+    Admin     : a_id, a_password
+    Customer  : User, profession
+    Vendor    : User, shopname, nid, tin, shope_license
+    Product   : p_id, name, brand, category, description, photo, quantity, price, in_stock
+    Cart      : c_id, CusProVenId, Product, product_quantity, add_product(), remove_product()
+    Checkout  : ct_id, cr_id, c_id, Cart, done_checkout()
+    Order     : o_id, CusProVenId, Checkout, payment_details, delivery_address, delivery_process, confirm_order()
+    Search    : s_id, CusProVenId
+    Recommend : r_id, CusProVenId
+    Reviews   : rw_id, cr_id, review, rating
+    Security  : st_id, cr_id, user_conformation
+-----------------------------------------------------------------------------------------------------------------
