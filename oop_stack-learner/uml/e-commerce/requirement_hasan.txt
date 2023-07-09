@@ -1,9 +1,9 @@
-Connections among Classes:
+Connectors:
 -----------------------------------------------------------------------------------------
-Association      : straight line
-Inheritance      : open arrow
-Aggregation [Has]: open diamond	 [A has a relationship with B. B can't survive without A]
-Composition [Is] : close diamond [A is a B. B can survive without A]
+    Association      : straight line
+    Inheritance      : open arrow
+    Aggregation [Has]: open diamond	 [A has a relationship with B. B can't survive without A]
+    Composition [Is] : close diamond [A is a B. B can survive without A]
 -----------------------------------------------------------------------------------------
 
 Requirements for a E-Commerce site:
