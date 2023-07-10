@@ -15,6 +15,9 @@ class Person{
     set email(new_email){
         this._email = new_email
     }
+    print(){
+        console.log(this)
+    }
     //Static Methods
     static isValid(age){
         //if(age >= 18) return true

@@ -8,6 +8,24 @@
  */
 
 // Import the classes
-const Person  = require('./Person');
-const Student = require('./Student')
+const Person = require('./Person')
 const Teacher = require('./Teacher')
+const Student = require('./Student')
+
+// Create objects using these Classes
+const p1 = new Person("Mahareen Laiba", "mahareenlaiba@gmail.com")
+const t1 = new Teacher("Maharunnesa", "maharunnesa@gmail.com", "Computer 101", 50000)
+const s1 = new Student("Maharun Aina", "maharunaina@gmail.com", ["Computer 101", "Mathematics-1", "Statistics"], 500000)
+t1.name = "Abs Sayem"
+console.log(p1)
+console.log(t1 instanceof Teacher)
+console.log(t1 instanceof Person)   //It will also True
+console.log(s1._subjects)
+
+const p2 = t1
+console.log(p2)
+const t2 = p1
+console.log(t2)
+
+s1.print()
+t1.print()
